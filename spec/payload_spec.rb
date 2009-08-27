@@ -72,5 +72,16 @@ EOS
 			f = File.new(File.dirname(__FILE__) + "/master_shake.jpg")
 			RestClient::Payload.generate({"foo" => {"file" => f}}).should be_kind_of(RestClient::Payload::Multipart)
 		end
+		
 	end
+	
+	context "Payload I/O" do
+    it "should reset the cursor after inspect" do
+    	payload=RestClient::Payload.generate('test')
+      payload.inspect.should == '"test"'
+      payload.inspect.should == '"test"'
+    end
+
+	end
+	
 end
